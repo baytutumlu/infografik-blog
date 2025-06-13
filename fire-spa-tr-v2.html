@@ -1,0 +1,399 @@
+{\rtf1\ansi\ansicpg1254\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <!DOCTYPE html>\
+<html lang="tr" class="scroll-smooth">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <!-- Chosen Palette: Calm Confidence -->\
+    <!-- Application Structure Plan: The SPA is structured as a user journey: 1) A strong hook and a personal calculator to immediately engage the user ("What's YOUR number?"). 2) A "Find Your Path" section to explore different FIRE types with comparative charts. 3) A "Turkey-Specific Strategy" section addressing local challenges (inflation) and opportunities (BES, etc.). 4) An actionable flowchart for "First Steps." This non-linear, task-oriented flow is designed to be more engaging and empowering than the source report's text-based structure. -->\
+    <!-- Visualization & Content Choices: I chose visualizations to match user goals: A dynamic HTML stat for the FIRE calculator (Inform/Interact). A Bar chart for Lean vs. FatFIRE (Compare magnitudes). A Line chart for Coast FIRE (Show change over time). A Donut chart for Barista FIRE (Show composition). A Radar chart for a sample Turkish portfolio (Organize/Compare). And HTML/CSS diagrams for simple concepts like BES and the First Steps flowchart (Organize), which are clearer and faster than complex charts for these specific goals. All choices support the designed application structure. -->\
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->\
+    <title>Finansal \'d6zg\'fcrl\'fck (FIRE) Yol Haritas\uc0\u305 </title>\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>\
+    <link rel="preconnect" href="https://fonts.googleapis.com">\
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">\
+    <style>\
+        body \{\
+            font-family: 'Inter', sans-serif;\
+            background-color: #f8fafc; /* neutral-50 */\
+        \}\
+        .chart-container \{\
+            position: relative;\
+            width: 100%;\
+            height: 300px;\
+            max-height: 400px;\
+            max-width: 600px;\
+            margin-left: auto;\
+            margin-right: auto;\
+        \}\
+        @media (min-width: 768px) \{\
+            .chart-container \{\
+                height: 350px;\
+            \}\
+        \}\
+        .flow-step \{\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            text-align: center;\
+            padding: 1rem;\
+            border-radius: 0.5rem;\
+            font-weight: 700;\
+            min-height: 80px;\
+            flex-grow: 1;\
+        \}\
+        .flow-arrow \{\
+            font-size: 2rem;\
+            color: #d69f7e; /* accent */\
+            margin: 0.5rem 0;\
+            transform: rotate(90deg);\
+        \}\
+        @media (min-width: 1024px) \{\
+            .flow-arrow \{\
+                transform: rotate(0deg);\
+                margin: 0 1rem;\
+            \}\
+        \}\
+        .section-title \{\
+            color: #1a535c; /* primary-dark */\
+        \}\
+        .card \{\
+            background-color: white;\
+            border-radius: 0.75rem;\
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);\
+            padding: 1.5rem;\
+            height: 100%;\
+            display: flex;\
+            flex-direction: column;\
+        \}\
+        .card h3 \{\
+             color: #4a7c59; /* secondary */\
+        \}\
+        .btn-primary \{\
+            background-color: #ff6b6b; /* accent-strong */\
+            color: white;\
+            font-weight: 700;\
+            padding: 0.75rem 1.5rem;\
+            border-radius: 0.5rem;\
+            transition: background-color 0.3s;\
+        \}\
+        .btn-primary:hover \{\
+            background-color: #e55a5a;\
+        \}\
+    </style>\
+</head>\
+<body class="bg-slate-50 text-slate-700">\
+\
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">\
+\
+        <header class="text-center my-12 md:my-16">\
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-4">Maa\uc0\u351 a Mahkum Olmaktan S\u305 k\u305 ld\u305 n\u305 z m\u305 ?</h1>\
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Hayallerinizi ertelemekten yorulduysan\uc0\u305 z, finansal \'f6zg\'fcrl\'fc\u287 \'fcn sizin i\'e7in de bir yolu var. Bu, hayat\u305 n\u305 z\u305 n kontrol\'fcn\'fc elinize al\u305 p kendi \u351 artlar\u305 n\u305 zla ya\u351 ama sanat\u305 d\u305 r.</p>\
+        </header>\
+\
+        <main class="space-y-16 md:space-y-24">\
+\
+            <section id="hesapla" class="card md:p-8">\
+                <h2 class="text-3xl font-bold text-center mb-6 section-title">Her \uc0\u350 ey Bir Rakamla Ba\u351 lar: Sizin FIRE Hedefiniz Ne?</h2>\
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">\
+                    <div>\
+                        <p class="mb-4 text-slate-600">Finansal ba\uc0\u287 \u305 ms\u305 zl\u305 k, pasif gelirlerinizin ya\u351 am giderlerinizi kar\u351 \u305 lad\u305 \u287 \u305  noktad\u305 r. Bu hedefe ula\u351 mak i\'e7in ne kadar birikim yapman\u305 z gerekti\u287 ini me\u351 hur "25x Kural\u305 " ile kolayca tahmin edebilirsiniz.</p>\
+                        <p class="mb-4 text-slate-600">A\uc0\u351 a\u287 \u305 ya, emeklilikte \'f6ng\'f6rd\'fc\u287 \'fcn\'fcz <strong>y\u305 ll\u305 k</strong> harcama tutar\u305 n\u305  girin ve sihirli rakam\u305 n\u305 z\u305  ke\u351 fedin.</p>\
+                        <div class="bg-slate-100 p-4 rounded-lg">\
+                            <label for="annual-spending" class="block text-sm font-medium text-slate-700">Tahmini Y\uc0\u305 ll\u305 k Harcaman\u305 z (TL)</label>\
+                            <input type="number" id="annual-spending" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-[#4a7c59] focus:ring focus:ring-[#4a7c59] focus:ring-opacity-50 p-3 text-lg" placeholder="\'d6rn: 480000">\
+                        </div>\
+                        <button id="calculate-fire" class="w-full btn-primary mt-4">HEDEF\uc0\u304 M\u304  HESAPLA</button>\
+                    </div>\
+                    <div class="text-center bg-gradient-to-br from-[#1a535c] to-[#4a7c59] text-white p-8 rounded-lg">\
+                        <p class="text-lg opacity-80">Finansal Ba\uc0\u287 \u305 ms\u305 zl\u305 k Hedefiniz:</p>\
+                        <p id="fire-number" class="text-5xl md:text-6xl font-black my-2">12.000.000 TL</p>\
+                        <p class="text-xs opacity-70 mt-4">Bu hesaplama, yat\uc0\u305 r\u305 m portf\'f6y\'fcn\'fczden y\u305 ll\u305 k %4 \'e7ekebilece\u287 iniz varsay\u305 m\u305 na dayan\u305 r. T\'fcrkiye'nin y\'fcksek enflasyon ortam\u305 nda, daha g\'fcvenli bir plan i\'e7in y\u305 ll\u305 k %3 (%33x) veya %2.5 (%40x) gibi daha d\'fc\u351 \'fck bir \'e7ekim oran\u305  ve dolay\u305 s\u305 yla daha y\'fcksek bir hedef belirlemek ak\u305 ll\u305 ca olabilir.</p>\
+                    </div>\
+                </div>\
+            </section>\
+\
+            <section id="yollar">\
+                <h2 class="text-3xl font-bold text-center mb-8 section-title">FIRE Yelpazesi: Kendi Yolunuzu Bulun</h2>\
+                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-12">Finansal \'f6zg\'fcrl\'fck tek bir kal\uc0\u305 ba s\u305 \u287 maz. Ya\u351 am tarz\u305 n\u305 za, hedeflerinize ve konfor anlay\u305 \u351 \u305 n\u305 za g\'f6re farkl\u305  FIRE t\'fcrleri bulunur. Gelin bu yollar\u305  ke\u351 fedelim.</p>\
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">\
+                    <div class="card">\
+                        <h3 class="text-xl font-bold mb-2">LeanFIRE</h3>\
+                        <p class="text-sm text-slate-600 flex-grow">Minimalizmle gelen erken \'f6zg\'fcrl\'fck. D\'fc\uc0\u351 \'fck giderli bir ya\u351 am tarz\u305  benimsenerek, en h\u305 zl\u305  \u351 ekilde ba\u287 \u305 ms\u305 zl\u305 \u287 a ula\u351 mak hedeflenir.</p>\
+                    </div>\
+                    <div class="card">\
+                        <h3 class="text-xl font-bold mb-2">Coast FIRE</h3>\
+                        <p class="text-sm text-slate-600 flex-grow">Tohumlar\uc0\u305  erken ekip, meyvelerini beklemek. Belli bir birikime ula\u351 t\u305 ktan sonra, bile\u351 ik faizin sizin i\'e7in \'e7al\u305 \u351 mas\u305 n\u305  izlerken sadece ya\u351 am giderleriniz i\'e7in \'e7al\u305 \u351 \u305 rs\u305 n\u305 z.</p>\
+                    </div>\
+                    <div class="card">\
+                        <h3 class="text-xl font-bold mb-2">Barista FIRE</h3>\
+                        <p class="text-sm text-slate-600 flex-grow">Yar\uc0\u305  zamanl\u305  tutku, tam zamanl\u305  \'f6zg\'fcrl\'fck. Giderlerin bir k\u305 sm\u305 n\u305  keyif al\u305 nan, daha az stresli bir i\u351 ten kar\u351 \u305 layarak birikimlere daha az dokunulur.</p>\
+                    </div>\
+                    <div class="card">\
+                        <h3 class="text-xl font-bold mb-2">FatFIRE</h3>\
+                        <p class="text-sm text-slate-600 flex-grow">Konforlu ve l\'fcks bir emeklilik. Mevcut veya daha y\'fcksek bir ya\uc0\u351 am standard\u305 n\u305  s\'fcrd\'fcrmek i\'e7in b\'fcy\'fck bir portf\'f6y hedeflenir.</p>\
+                    </div>\
+                </div>\
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">\
+                     <div class="card">\
+                        <h3 class="text-2xl font-bold text-center mb-4">Ya\uc0\u351 am Tarz\u305  ve Hedef Fark\u305 </h3>\
+                        <p class="text-center text-sm text-slate-600 mb-4">LeanFIRE ve FatFIRE, yelpazenin iki ucunu temsil eder. Bu bar grafi\uc0\u287 i, ya\u351 am tarz\u305  beklentilerinin hedef birikim miktar\u305 n\u305  ne kadar dramatik bir \u351 ekilde de\u287 i\u351 tirdi\u287 ini g\'f6sterir.</p>\
+                        <div class="chart-container"><canvas id="leanVsFatChart"></canvas></div>\
+                    </div>\
+                     <div class="card">\
+                        <h3 class="text-2xl font-bold text-center mb-4">Bile\uc0\u351 ik Faizin Sihri: Coast FIRE</h3>\
+                        <p class="text-center text-sm text-slate-600 mb-4">Bu grafik, 30 ya\uc0\u351 \u305 nda 750.000 TL birikime ula\u351 \u305 p ek katk\u305  yapmayan birinin portf\'f6y\'fcn\'fcn, y\u305 ll\u305 k ortalama %5 reel getiri ile 65 ya\u351 \u305 na kadar nas\u305 l b\'fcy\'fcyebilece\u287 ini g\'f6steriyor.</p>\
+                        <div class="chart-container"><canvas id="coastFireChart"></canvas></div>\
+                    </div>\
+                     <div class="card">\
+                        <h3 class="text-2xl font-bold text-center mb-4">Esnek Gelir: Barista FIRE</h3>\
+                        <p class="text-center text-sm text-slate-600 mb-4">Barista FIRE modelinde ya\uc0\u351 am giderleri iki kaynaktan kar\u351 \u305 lan\u305 r: Birikimlerden gelen pasif gelir ve keyif al\u305 nan bir i\u351 ten elde edilen aktif gelir. Bu, ana portf\'f6y \'fczerindeki bask\u305 y\u305  azalt\u305 r.</p>\
+                        <div class="chart-container h-[280px] md:h-[330px]"><canvas id="baristaFireChart"></canvas></div>\
+                    </div>\
+                    <div class="card">\
+                        <h3 class="text-2xl font-bold text-center mb-4">T\'fcrkiye \uc0\u304 \'e7in \'d6rnek Portf\'f6y</h3>\
+                         <p class="text-center text-sm text-slate-600 mb-4">Y\'fcksek enflasyon ve kur riskine kar\uc0\u351 \u305  korunmak i\'e7in \'e7e\u351 itlendirme esast\u305 r. Bu radar grafi\u287 i, T\'fcrkiye'deki bir yat\u305 r\u305 mc\u305  i\'e7in dengeli bir portf\'f6y da\u287 \u305 l\u305 m\u305  \'f6rne\u287 i sunmaktad\u305 r.</p>\
+                        <div class="chart-container"><canvas id="portfolioChart"></canvas></div>\
+                    </div>\
+                </div>\
+            </section>\
+            \
+            <section id="turkiye-stratejileri" class="card md:p-8">\
+                <h2 class="text-3xl font-bold text-center mb-2 section-title">T\'fcrkiye'de Finansal Ba\uc0\u287 \u305 ms\u305 zl\u305 k Yolculu\u287 u</h2>\
+                <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">Y\'fcksek enflasyon, birikimlerin en b\'fcy\'fck d\'fc\uc0\u351 man\u305 d\u305 r. Paran\u305 z\u305 n de\u287 erini korumak ve reel olarak art\u305 rmak i\'e7in ak\u305 ll\u305 ca \'e7e\u351 itlendirilmi\u351 , T\'fcrkiye'nin dinamiklerine uygun bir portf\'f6y olu\u351 turmak kritik \'f6nem ta\u351 \u305 r.</p>\
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">\
+                    <div>\
+                        <h3 class="text-2xl font-bold mb-4">Enflasyonla Dans: Korunma Kalkanlar\uc0\u305 </h3>\
+                        <ul class="space-y-4">\
+                            <li class="flex items-start"><span class="text-[#4a7c59] font-bold mr-3 text-xl">\uc0\u10003 </span><div><b>Hisse Senetleri & Fonlar:</b> Uzun vadede enflasyon \'fczerinde getiri potansiyeli sunar. \'d6zellikle B\u304 ST'te i\u351 lem g\'f6ren ve vergi avantajl\u305  hisse senedi yo\u287 un fonlar \'f6ne \'e7\u305 kar.</div></li>\
+                            <li class="flex items-start"><span class="text-[#4a7c59] font-bold mr-3 text-xl">\uc0\u10003 </span><div><b>D\'f6viz ve Alt\u305 n:</b> TL'nin de\u287 er kayb\u305 na ve k\'fcresel belirsizliklere kar\u351 \u305  geleneksel bir koruma kalkan\u305  g\'f6revi g\'f6r\'fcr.</div></li>\
+                            <li class="flex items-start"><span class="text-[#4a7c59] font-bold mr-3 text-xl">\uc0\u10003 </span><div><b>Yabanc\u305  Varl\u305 klar & ETF'ler:</b> Portf\'f6y\'fc k\'fcresel olarak \'e7e\u351 itlendirerek \'fclke riskini da\u287 \u305 t\u305 r ve d\'f6viz bazl\u305  getiri sa\u287 lar.</div></li>\
+                             <li class="flex items-start"><span class="text-[#4a7c59] font-bold mr-3 text-xl">\uc0\u10003 </span><div><b>Gayrimenkul ve GYO'lar:</b> Kira geliri ve de\u287 er art\u305 \u351 \u305  ile enflasyona kar\u351 \u305  korunma sa\u287 layabilir. Sermaye Piyasas\u305 'ndaki GYO'lar daha likit bir alternatiftir.</div></li>\
+                        </ul>\
+                    </div>\
+                    <div class="bg-slate-100 p-6 rounded-lg text-center">\
+                        <h3 class="text-2xl font-bold mb-4">T\'fcrkiye'ye \'d6zg\'fc F\uc0\u305 rsat: BES'in %30'luk G\'fcc\'fc</h3>\
+                        <p class="mb-4">Bireysel Emeklilik Sistemi (BES), %30 devlet katk\uc0\u305 s\u305 yla d\'fcnyada e\u351 i az bulunan bir te\u351 vik sunar. Yat\u305 rd\u305 \u287 \u305 n\u305 z her 100 TL, an\u305 nda 130 TL'ye d\'f6n\'fc\u351 \'fcr.</p>\
+                        <div class="flex items-center justify-center space-x-4 my-6">\
+                            <div class="text-center"><div class="text-5xl">\uc0\u55357 \u56496 </div><p class="font-bold">100 TL<br/>Siz</p></div>\
+                            <div class="text-5xl text-[#d69f7e] font-black">+</div>\
+                             <div class="text-center"><div class="text-5xl">\uc0\u55356 \u57307 \u65039 </div><p class="font-bold">30 TL<br/>Devlet</p></div>\
+                             <div class="text-5xl text-[#4a7c59] font-black">=</div>\
+                             <div class="text-center"><div class="text-5xl">\uc0\u55357 \u56520 </div><p class="font-bold">130 TL<br/>Birikim</p></div>\
+                        </div>\
+                        <p class="text-xs text-slate-500 mt-4">Devlet katk\uc0\u305 s\u305  y\u305 ll\u305 k br\'fct asgari \'fccret tutar\u305  ile s\u305 n\u305 rl\u305 d\u305 r. Katk\u305 n\u305 n tamam\u305 na hak kazanmak i\'e7in sistemde 10 y\u305 l kalmak ve 56 ya\u351 \u305 n\u305  doldurmak gerekir. Bu, onu g\'fc\'e7l\'fc bir uzun vadeli ara\'e7 haline getirir.</p>\
+                    </div>\
+                </div>\
+            </section>\
+            \
+            <section id="ilk-adimlar">\
+                 <h2 class="text-3xl font-bold text-center mb-2 section-title">\uc0\u304 lk Ad\u305 mlar: Yolculuk Ba\u351 las\u305 n!</h2>\
+                 <p class="text-center text-slate-600 mb-12 max-w-3xl mx-auto">Finansal ba\uc0\u287 \u305 ms\u305 zl\u305 k bir maratondur, sprint de\u287 il. Bu yolculuk, bilin\'e7li ve tutarl\u305  ad\u305 mlar atmay\u305  gerektirir. \u304 \u351 te ba\u351 laman\u305 z i\'e7in basit bir yol haritas\u305 .</p>\
+                <div class="flex flex-col lg:flex-row items-stretch justify-center gap-4">\
+                    <div class="flow-step bg-[#1a535c] text-white">1. B\'fct\'e7e Yap: Paran\uc0\u305 n Nereye Gitti\u287 ini Anla</div>\
+                    <div class="flow-arrow font-black">\uc0\u8594 </div>\
+                    <div class="flow-step bg-[#4a7c59] text-white">2. Bor\'e7lar\uc0\u305  Azalt: Y\'fcksek Faizli Bor\'e7lardan Kurtul</div>\
+                    <div class="flow-arrow font-black">\uc0\u8594 </div>\
+                    <div class="flow-step bg-[#d69f7e] text-white">3. Acil Durum Fonu Olu\uc0\u351 tur (3-6 Ayl\u305 k)</div>\
+                    <div class="flow-arrow font-black">\uc0\u8594 </div>\
+                    <div class="flow-step bg-[#ff6b6b] text-white">4. Birikim Oran\uc0\u305 n\u305  Art\u305 r ve Yat\u305 r\u305 ma Ba\u351 la</div>\
+                </div>\
+            </section>\
+        </main>\
+\
+        <footer class="text-center mt-16 md:mt-24 pt-8 border-t border-slate-200">\
+             <h2 class="text-2xl font-bold mb-4 section-title">Kendi Hikayenizi Yazmaya Haz\uc0\u305 r m\u305 s\u305 n\u305 z?</h2>\
+             <p class="text-slate-600 max-w-2xl mx-auto mb-6">Unutmay\uc0\u305 n, en uzun yolculuklar bile tek bir ad\u305 mla ba\u351 lar. Finansal gelece\u287 inizi \u351 ekillendirmek sizin elinizde. Harekete ge\'e7mek i\'e7in en iyi zaman, \u351 imdidir.</p>\
+             <p class="font-bold text-slate-800">Sizin FIRE hayaliniz nedir? Hangi strateji size daha yak\uc0\u305 n geliyor?</p>\
+        </footer>\
+    </div>\
+\
+<script>\
+    document.addEventListener('DOMContentLoaded', () => \{\
+        const calmConfidencePalette = \{\
+            primary: '#1a535c', \
+            secondary: '#4a7c59',\
+            accent: '#d69f7e', \
+            accentStrong: '#ff6b6b', \
+            neutral: '#f8fafc', \
+            text: '#334155',\
+            textLight: '#64748b',\
+            white: '#ffffff'\
+        \};\
+\
+        function wrapLabel(label) \{\
+            const maxLen = 16;\
+            if (typeof label !== 'string' || label.length <= maxLen) return label;\
+            const words = label.split(' ');\
+            const lines = [];\
+            let currentLine = '';\
+            for (const word of words) \{\
+                if ((currentLine + ' ' + word).trim().length > maxLen) \{\
+                    lines.push(currentLine.trim());\
+                    currentLine = word;\
+                \} else \{\
+                    currentLine = (currentLine + ' ' + word).trim();\
+                \}\
+            \}\
+            if (currentLine) lines.push(currentLine.trim());\
+            return lines;\
+        \}\
+\
+        const tooltipTitleCallback = (tooltipItems) => \{\
+            const item = tooltipItems[0];\
+            let label = item.chart.data.labels[item.dataIndex];\
+            return Array.isArray(label) ? label.join(' ') : label;\
+        \};\
+        \
+        const commonChartOptions = \{\
+            responsive: true,\
+            maintainAspectRatio: false,\
+            animation: \{\
+                duration: 0\
+            \},\
+            plugins: \{\
+                legend: \{\
+                    labels: \{\
+                        color: calmConfidencePalette.text,\
+                        font: \{ family: "'Inter', sans-serif" \}\
+                    \}\
+                \},\
+                tooltip: \{\
+                    enabled: true,\
+                    backgroundColor: calmConfidencePalette.primary,\
+                    titleFont: \{ size: 14, family: "'Inter', sans-serif" \},\
+                    bodyFont: \{ size: 12, family: "'Inter', sans-serif" \},\
+                    padding: 10,\
+                    callbacks: \{ title: tooltipTitleCallback \}\
+                \}\
+            \},\
+            scales: \{\
+                y: \{ ticks: \{ color: calmConfidencePalette.textLight \}, grid: \{ color: '#e2e8f0' \} \},\
+                x: \{ ticks: \{ color: calmConfidencePalette.textLight \}, grid: \{ display: false \} \}\
+            \}\
+        \};\
+\
+        const calculateButton = document.getElementById('calculate-fire');\
+        const spendingInput = document.getElementById('annual-spending');\
+        const fireNumberEl = document.getElementById('fire-number');\
+        \
+        const updateFireNumber = () => \{\
+             const spending = parseFloat(spendingInput.value) || 480000;\
+             const fireNumber = spending * 25;\
+             fireNumberEl.textContent = `$\{fireNumber.toLocaleString('tr-TR')\} TL`;\
+        \};\
+        \
+        calculateButton.addEventListener('click', updateFireNumber);\
+        spendingInput.addEventListener('keyup', (event) => \{\
+            if (event.key === 'Enter') \{\
+                updateFireNumber();\
+            \}\
+        \});\
+\
+        // --- Charts ---\
+        \
+        const leanVsFatCtx = document.getElementById('leanVsFatChart').getContext('2d');\
+        new Chart(leanVsFatCtx, \{\
+            type: 'bar',\
+            data: \{\
+                labels: ['LeanFIRE', 'FatFIRE'],\
+                datasets: [\{\
+                    label: 'Hedef Birikim (Milyon TL)',\
+                    data: [1.5, 15],\
+                    backgroundColor: [calmConfidencePalette.secondary, calmConfidencePalette.primary],\
+                    borderWidth: 0\
+                \}]\
+            \},\
+            options: \{ ...commonChartOptions, scales: \{ y: \{ ticks: \{ callback: value => value + 'M' \} \} \} \}\
+        \});\
+        \
+        const baristaFireCtx = document.getElementById('baristaFireChart').getContext('2d');\
+        new Chart(baristaFireCtx, \{\
+            type: 'doughnut',\
+            data: \{\
+                labels: ['Yat\uc0\u305 r\u305 m Gelirleri', 'Yar\u305  Zamanl\u305  \u304 \u351  Geliri'],\
+                datasets: [\{\
+                    data: [65, 35],\
+                    backgroundColor: [calmConfidencePalette.primary, calmConfidencePalette.accent],\
+                    borderColor: calmConfidencePalette.neutral,\
+                    borderWidth: 4,\
+                    hoverOffset: 4\
+                \}]\
+            \},\
+            options: \{\
+                 responsive: true,\
+                 maintainAspectRatio: false,\
+                 animation: \{ duration: 0 \},\
+                 plugins: \{\
+                    legend: \{ position: 'top', labels: \{ color: calmConfidencePalette.text, font: \{ family: "'Inter', sans-serif" \}\} \},\
+                    tooltip: \{ ...commonChartOptions.plugins.tooltip \}\
+                 \}\
+            \}\
+        \});\
+\
+        const coastFireCtx = document.getElementById('coastFireChart').getContext('2d');\
+        new Chart(coastFireCtx, \{\
+            type: 'line',\
+            data: \{\
+                labels: Array.from(\{length: 36\}, (_, i) => 30 + i),\
+                datasets: [\{\
+                    label: 'Portf\'f6y De\uc0\u287 eri',\
+                    data: Array.from(\{length: 36\}, (_, i) => 750000 * Math.pow(1.05, i)),\
+                    fill: true,\
+                    borderColor: calmConfidencePalette.secondary,\
+                    backgroundColor: 'rgba(74, 124, 89, 0.1)',\
+                    tension: 0.1,\
+                    pointRadius: 0,\
+                \}]\
+            \},\
+            options: \{ ...commonChartOptions, scales: \{ y: \{ ticks: \{ callback: value => (value / 1000000).toFixed(1) + 'M' \} \} \} \}\
+        \});\
+        \
+        const portfolioCtx = document.getElementById('portfolioChart').getContext('2d');\
+        new Chart(portfolioCtx, \{\
+            type: 'radar',\
+            data: \{\
+                labels: [wrapLabel('B\uc0\u304 ST Hisse/Fon'), wrapLabel('Yabanc\u305  Hisse/ETF'), 'Alt\u305 n', 'D\'f6viz', 'Gayrimenkul (GYO)', wrapLabel('BES Fonlar\u305 ')],\
+                datasets: [\{\
+                    label: '\'d6rnek Portf\'f6y Da\uc0\u287 \u305 l\u305 m\u305  (%)',\
+                    data: [30, 20, 15, 10, 15, 10],\
+                    fill: true,\
+                    backgroundColor: 'rgba(255, 107, 107, 0.2)',\
+                    borderColor: calmConfidencePalette.accentStrong,\
+                    pointBackgroundColor: calmConfidencePalette.accentStrong,\
+                    pointBorderColor: calmConfidencePalette.white,\
+                \}]\
+            \},\
+            options: \{\
+                responsive: true, maintainAspectRatio: false, animation: \{ duration: 0 \},\
+                plugins: \{ legend: \{ display: false \}, tooltip: \{ ...commonChartOptions.plugins.tooltip \} \},\
+                scales: \{\
+                    r: \{\
+                        angleLines: \{ color: '#d1d5db' \}, grid: \{ color: '#e5e7eb' \},\
+                        pointLabels: \{ color: calmConfidencePalette.text, font: \{ size: 12, family: "'Inter', sans-serif" \} \},\
+                        ticks: \{\
+                            color: calmConfidencePalette.white,\
+                            backdropColor: 'rgba(74, 124, 89, 0.7)',\
+                            stepSize: 10,\
+                            callback: value => value + '%'\
+                        \}\
+                    \}\
+                \}\
+            \}\
+        \});\
+        updateFireNumber();\
+    \});\
+</script>\
+</body>\
+</html>\
+}
